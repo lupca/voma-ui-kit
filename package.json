@@ -1,5 +1,5 @@
 {
-  "name": "@voma/ui-kit",
+  "name": "@topvnsport/ui-kit",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
