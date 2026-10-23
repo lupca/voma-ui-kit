@@ -81,19 +81,19 @@ export default function SystemPopupProvider({ children }: SystemPopupProviderPro
     <>
       {children}
       {request && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-gray-50/70 p-4 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-2xl border border-gray-300 bg-surface p-5 shadow-2xl">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-indigo-600">
-              {request.kind === "confirm" ? "Xac nhan" : request.kind === "prompt" ? "Nhap thong tin" : "Thông báo"}
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4">
+          <div role="alertdialog" aria-modal="true" className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
+            <h3 className="font-display text-lg font-black uppercase text-gray-900">
+              {request.kind === "confirm" ? "Xác nhận" : request.kind === "prompt" ? "Nhập thông tin" : "Thông báo"}
             </h3>
-            <p className="mt-3 whitespace-pre-wrap text-sm text-gray-900">{request.message}</p>
+            <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-gray-700">{request.message}</p>
 
             {request.kind === "prompt" && (
               <input
                 autoFocus
                 value={promptValue}
                 onChange={(event) => setPromptValue(event.target.value)}
-                className="mt-4 w-full rounded-xl border border-gray-300 bg-surface-hover px-3 py-2 text-sm text-gray-900 focus:border-indigo-500 focus:outline-none"
+                className="mt-4 w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 focus:border-brand-primary focus:outline-none"
               />
             )}
 
@@ -102,7 +102,7 @@ export default function SystemPopupProvider({ children }: SystemPopupProviderPro
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="rounded-lg border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition hover:bg-gray-100"
+                  className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-100"
                 >
                   Hủy
                 </button>
@@ -110,7 +110,7 @@ export default function SystemPopupProvider({ children }: SystemPopupProviderPro
               <button
                 type="button"
                 onClick={handleConfirm}
-                className="rounded-lg bg-brand-primary px-3 py-2 text-xs font-semibold text-white transition hover:bg-brand-secondary"
+                className="rounded-lg bg-brand-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-secondary"
               >
                 Đồng ý
               </button>
